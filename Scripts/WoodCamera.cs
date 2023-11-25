@@ -10,8 +10,8 @@ namespace SteamEngine.Camera
         public void Follow(Core2D target, Vector2 ScreenSize)
         {
             var position = Matrix.CreateTranslation(
-              -target.Position.X - (target.Size.X / 2),
-              -target.Position.Y - (target.Size.Y / 2),
+              -target.middlePosition.X,
+              -target.middlePosition.Y,
               0);
 
             var offset = Matrix.CreateTranslation(

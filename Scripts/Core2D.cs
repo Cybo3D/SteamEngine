@@ -11,11 +11,13 @@ namespace SteamEngine
         public Vector3 middlePosition;
         public Core2D()
 		{
-            
+
 		}
-        public void SetMiddlePosition(){
-            middlePosition = Position / new Vector3(Size, Position.Z);
+        public void SetMiddlePosition()
+        {
+            middlePosition = new Vector3(Position.X + Size.X / 2, Position.Y + Size.Y / 2, Position.Z);
         }
+
 		public override void Update(GameTime gameTime)
 		{
 
