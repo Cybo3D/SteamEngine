@@ -9,24 +9,13 @@ namespace SteamEngine
         public Vector2 Size = new Vector2(1, 1);
         public Vector3 Rotation;
         public Vector3 middlePosition;
-        public Core2D(Vector3 position)
+        public Core2D()
 		{
-			Position = position;
-            middlePosition = Position / new Vector3(Size, Position.Z);
+            
 		}
-        public Core2D(Vector3 position, Vector3 rotation)
-		{
-			Position = position;
-            Rotation = rotation;
+        public void SetMiddlePosition(){
             middlePosition = Position / new Vector3(Size, Position.Z);
-		}
-		public Core2D(Vector3 position, Vector3 rotation, Vector2 size)
-		{
-			Position = position;
-            Rotation = rotation;
-            Size = size;
-            middlePosition = Position / new Vector3(Size, Position.Z);
-		}
+        }
 		public override void Update(GameTime gameTime)
 		{
 
