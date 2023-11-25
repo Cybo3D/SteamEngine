@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using SteamEngine;
 
 namespace SteamEngine.Camera
 {

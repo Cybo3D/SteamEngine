@@ -7,7 +7,7 @@ namespace SteamEngine
 	{
         public Vector3 Position;
         public Vector2 Size = new Vector2(1, 1);
-        public Vector3 Rotation;
+        public float Rotation;
         public Vector3 middlePosition;
         public Core2D()
 		{
