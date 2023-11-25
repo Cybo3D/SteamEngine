@@ -2,13 +2,15 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using SteamEngine.Input;
+
 namespace SteamEngine;
 
 public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-
+    WaterInput input = new WaterInput();
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -32,11 +34,11 @@ public class Game1 : Game
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if (input.ButtonPressed("Exit"))
             Exit();
 
         // TODO: Add your update logic here
-
+        input.Update();
         base.Update(gameTime);
     }
 

@@ -109,7 +109,7 @@ namespace SteamEngine.Input
             }
             return false; // Action not found
         }
-        public void SetInputDevice()
+        private void SetInputDevice()
         {
             // Automatically switch between keyboard and controller input based on the input device in use
             if (currentGamePadState.IsConnected && currentGamePadState.Buttons != previousGamePadState.Buttons)
