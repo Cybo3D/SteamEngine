@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using SteamEngine;
 
 namespace SteamEngine.Camera
 {
@@ -6,12 +7,12 @@ namespace SteamEngine.Camera
     {
         public Matrix Transform { get; private set; }
 
-        public void Follow(Player target, Vector2 ScreenSize)
+        public void Follow(Core2D target, Vector2 ScreenSize)
         {
             
             var position = Matrix.CreateTranslation(
-              -target.Position.X - (target.Rectangle.Width / 2),
-              -target.Position.Y - (target.Rectangle.Height / 2),
+              -target.Position.X - (target.Size.X / 2),
+              -target.Position.Y - (target.Size.Y / 2),
               0);
 
             var offset = Matrix.CreateTranslation(
