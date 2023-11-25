@@ -5,11 +5,10 @@ namespace SteamEngine.Camera
 {
     public class WoodCamera
     {
-        public Matrix Transform { get; private set; }
+        public Matrix Matrix { get; private set; }
 
         public void Follow(Core2D target, Vector2 ScreenSize)
         {
-            
             var position = Matrix.CreateTranslation(
               -target.Position.X - (target.Size.X / 2),
               -target.Position.Y - (target.Size.Y / 2),
@@ -20,7 +19,7 @@ namespace SteamEngine.Camera
                 ScreenSize.Y / 2,
                 0);
 
-            Transform = position * offset;
+            Matrix = position * offset;
         }
     }
 }
