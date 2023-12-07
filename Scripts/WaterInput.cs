@@ -1,6 +1,12 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System.Text.Json;
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace SteamEngine.Input
 {
@@ -21,8 +27,37 @@ namespace SteamEngine.Input
             previousGamePadState = currentGamePadState;
             useControllerInput = true; // Start with controller input enabled
 
+            //JsonSerializer.Deserialize<Dictionary<string, List<object>>>(File.ReadAllText("./input.json"));
+
+            foreach (var x in JsonSerializer.Deserialize<Dictionary<string, List<Dictionary<string, List<string>>>>>(File.ReadAllText("./input.json")))
+            {
+                List<object> inputs = new List<object>();
+
+                foreach (var y in x.Value)
+                {
+                    if (y.ContainsKey("Keys"))
+                    {
+                        foreach (var key in y["Keys"])
+                        {
+                            // Assuming Keys is an enumeration, convert the string to Keys
+                            inputs.Add((Keys)Enum.Parse(typeof(Keys), key));
+                        }
+                    }
+                    if (y.ContainsKey("Buttons"))
+                    {
+                        foreach (var button in y["Buttons"])
+                        {
+                            // Assuming Buttons is an enumeration from Microsoft.Xna.Framework.Input
+                            inputs.Add((Buttons)Enum.Parse(typeof(Buttons), button));
+                        }
+                    }
+                }
+
+                inputBindings.Add(x.Key, inputs);
+            }
+
             // Bind multiple input sources to the same action
-            inputBindings.Add("Exit", new List<object> { Keys.Escape, Buttons.Back });
+            //inputBindings.Add("Exit", new List<object> { Keys.Escape, Buttons.Back });
             // Add more as needed
         }
         public bool ButtonDown(string actionName)

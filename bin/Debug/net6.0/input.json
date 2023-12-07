@@ -1,0 +1,8 @@
+{
+    "Exit": [
+        {
+            "Keys": ["Escape"],
+            "Buttons": ["Back"]
+        }
+    ]
+}
