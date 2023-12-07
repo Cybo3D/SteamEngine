@@ -20,8 +20,8 @@ namespace SteamEngine
             Texture = texture;
             frameWidth = Texture.Width;
             frameHeight = Texture.Height;
-            Size.X = frameWidth;
-            Size.Y = frameHeight;
+            LocalSize.X = frameWidth;
+            LocalSize.Y = frameHeight;
         }
         public Sprite2D(Texture2D texture, Color color)
         {
@@ -30,8 +30,8 @@ namespace SteamEngine
             Color = color;
             frameWidth = Texture.Width;
             frameHeight = Texture.Height;
-            Size.X = frameWidth;
-            Size.Y = frameHeight;
+            LocalSize.X = frameWidth;
+            LocalSize.Y = frameHeight;
         }
         public Sprite2D(Texture2D texture, Color color, int HFrames, int VFrames)
         {
@@ -40,8 +40,8 @@ namespace SteamEngine
             Color = color;
             frameWidth = Texture.Width / HFrames;
             frameHeight = Texture.Height / VFrames;
-            Size.X = frameWidth;
-            Size.Y = frameHeight;
+            LocalSize.X = frameWidth;
+            LocalSize.Y = frameHeight;
         }
         public Sprite2D(Texture2D texture, int HFrames, int VFrames)
         {
@@ -49,8 +49,8 @@ namespace SteamEngine
             Texture = texture;
             frameWidth = Texture.Width / HFrames;
             frameHeight = Texture.Height / VFrames;
-            Size.X = frameWidth;
-            Size.Y = frameHeight;
+            LocalSize.X = frameWidth;
+            LocalSize.Y = frameHeight;
         }
 
         public override void Update(GameTime gameTime)
@@ -71,20 +71,20 @@ namespace SteamEngine
                     frameHeight
                 );
                 Rectangle rectangle = new(
-                    (int)Position.X,
-                    (int)Position.Y,
-                    (int)Size.X,
-                    (int)Size.Y
+                    (int)GlobalPosition.X,
+                    (int)GlobalPosition.Y,
+                    (int)LocalSize.X,
+                    (int)LocalSize.Y
                 );
                 // Draw the current frame
                 spriteBatch.Draw(Texture,
                                 rectangle,
                                 sourceRectangle, 
                                 Color, 
-                                MathHelper.ToRadians(Rotation), 
-                                new Vector2(middlePosition.X, middlePosition.Z), 
+                                MathHelper.ToRadians(GlobalRotation), 
+                                new Vector2(GlobalMiddlePosition.X, GlobalMiddlePosition.Z), 
                                 new SpriteEffects(), 
-                                Position.Z);
+                                GlobalPosition.Z);
             }
         }
 	}

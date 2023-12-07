@@ -4,9 +4,6 @@ using Microsoft.Xna.Framework.Input;
 using System.Text.Json;
 using System;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace SteamEngine.Input
 {
