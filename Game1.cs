@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using SteamEngine.Camera;
 using SteamEngine.Input;
+using SteamEngine.UI;
 
 namespace SteamEngine;
 
