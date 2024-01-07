@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -6,6 +7,9 @@ namespace SteamEngine
     public class Collision : Core2D
     {
         private Rectangle _collisionRectangle;
+
+        public String CollisionLayer;
+
         public Rectangle CollisionRectangle
         {
             get { return _collisionRectangle; }
