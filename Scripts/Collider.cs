@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SteamEngine
 {
-    public class Collision
+    public class Collision : Core2D
     {
         private Rectangle _collisionRectangle;
         public Rectangle CollisionRectangle
@@ -12,10 +12,10 @@ namespace SteamEngine
             set { _collisionRectangle = value; }
         }
 
-        public Collision(Texture2D texture, Vector2 position)
+        public Collision()
         {
             // Initialize the collision rectangle in the constructor
-            _collisionRectangle = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+            _collisionRectangle = new Rectangle((int)LocalPosition.X, (int)LocalPosition.Y, (int)LocalSize.X, (int)LocalSize.X);
         }
 
         public bool IsTouchingTop(Collision other)
