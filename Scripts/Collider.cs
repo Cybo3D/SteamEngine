@@ -17,6 +17,9 @@ namespace SteamEngine
             // Initialize the collision rectangle in the constructor
             _collisionRectangle = new Rectangle((int)LocalPosition.X, (int)LocalPosition.Y, (int)LocalSize.X, (int)LocalSize.X);
         }
+        public void SetRectangle(){
+            _collisionRectangle = new Rectangle((int)LocalPosition.X, (int)LocalPosition.Y, (int)LocalSize.X, (int)LocalSize.X);
+        }
 
         public bool IsTouchingTop(Collision other)
         {
